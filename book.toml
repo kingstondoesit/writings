@@ -1,0 +1,62 @@
+[book]
+authors = ["kingstondoesit"]
+language = "en"
+multilingual = false
+src = "src"
+description = "An assemblage of writings from kingstondoesit."
+title = ""
+github = "https://github.com/kingstondoesit/writings"
+
+[build]
+extra-watch-dirs = [""]
+
+[preprocessor.alerts]
+
+[preprocessor.repl]
+src = "https://mr-addict.github.io/mdbook-repl/embed/"
+javascript.enable = true
+javascript.loading = "lazy"
+python.enable = true
+python.loading = "lazy"
+
+[preprocessor.embed]
+
+[preprocessor.quiz]
+
+[preprocessor.tabs]
+
+
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
+
+[output.html]
+git-repository-url = "https://github.com/kingstondoesit/writings"
+git-repository-icon = "fa-github"
+edit-url-template = "https://github.com/kingstondoesit/writings/edit/master/{path}"
+additional-js = [
+    "plugins/mermaid/mermaid-init.js",
+    "plugins/mermaid/mermaid.min.js",
+    "plugins/line-number/code-line-number-plugin.js",
+    "plugins/tabs/tabs.js",
+]
+additional-css = [
+    "plugins/last-changed/last-changed.css",
+    "plugins/line-number/line-number.css",
+    "plugins/tabs/tabs.css",
+]
+
+
+[preprocessor.last-changed]
+command = "mdbook-last-changed"
+renderer = ["html"]
+
+
+# [preprocessor.codeblocks]
+# renderers = ["html"]
+# cpp = { color = "#FFFF99", link = "https://wiki.redmodding.org/red4ext" }
+# redscript = { color = "tomato", link = "https://wiki.redmodding.org/redscript" }
+# rust = { color = "#ac4313", link = "https://github.com/jac3km4/red4ext-rs" }
+# lua = { link = "https://wiki.redmodding.org/cyber-engine-tweaks" }
+# swift = { label = "Swift code snippet", color = "skyblue" }
+# javascript = { label = "JavaScript code snippet", color = "#fdca00" }
+# bash = { label = "Bash code snipper", color = "#997C70" }
