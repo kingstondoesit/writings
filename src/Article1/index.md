@@ -232,7 +232,7 @@ Once that's done, follow the instructions below.
 
     Locate the `handle_setup_hook(hook_directory_path: str)` function and replace it with the following:
 
-    ```sh
+    ``` python
     ...
     
     def handle_setup_hook(hook_directory_path: str):

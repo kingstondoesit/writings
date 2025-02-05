@@ -45,11 +45,9 @@ additional-css = [
     "plugins/tabs/tabs.css",
 ]
 
-
 [preprocessor.last-changed]
 command = "mdbook-last-changed"
 renderer = ["html"]
-
 
 # [preprocessor.codeblocks]
 # renderers = ["html"]
@@ -59,4 +57,4 @@ renderer = ["html"]
 # lua = { link = "https://wiki.redmodding.org/cyber-engine-tweaks" }
 # swift = { label = "Swift code snippet", color = "skyblue" }
 # javascript = { label = "JavaScript code snippet", color = "#fdca00" }
-# bash = { label = "Bash code snipper", color = "#997C70" }
+# bash = { label = "Bash code snippet", color = "#997C70" }
