@@ -24,7 +24,7 @@ One crucial aspect of web and software development is version control and a proj
 
 The ability to collaborate effectively and reference to a specific state in a project's timeline is facilitated by accurate commits; yet, crafting clear, consistent commit messages can often feel like a tedious disruption in the workflow of many developers who understand their significance in the short and long term.
 
-In this article, we'll introduce easy-to-use AI-powered options that minifies the developer responsibility to manually draft adequate commit messages. We'll show you how to adopt each one and highlight probable limitations.
+This article introduces easy-to-use AI-powered options that lessen the developer burden of manually drafting adequate commit messages. We'll show you how to adopt each one and highlight probable limitations.
 
 ## Prerequisites
 
@@ -34,17 +34,17 @@ In this article, we'll introduce easy-to-use AI-powered options that minifies th
 
 ## Auto-Generate Commits with Copilot
 
-GitHub Copilot is Microsoft's flagship AI-assistant. It seamlessly integrates with VScode and is capable of analyzing diffs (short for differences) in code versions to suggest appropriate commit messages. It does this by comparing the content of staged files with the content of the most recent commit in a project's git repository.
+GitHub Copilot is Microsoft's flagship AI programming assistant. It seamlessly integrates with VScode and is capable of analyzing diffs (short for differences) in code versions to suggest appropriate commit messages. It does this by comparing the content of staged files with the content of the most recent commit in a project's git repository.
 
-Although we'll be using VScode for demonstration, Copilot can be deployed and utilized on several other IDEs.
+Although we'll be using VScode for demonstration, Copilot can be deployed and utilized on [several other IDEs](https://docs.github.com/en/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment).
 
 ### Generate Commit Messages with Copilot UI
 
-To setup Copilot as a commit message generating tool in your workspace, first install GitHub Copilot and Github Copilot chat extensions from the VScode extension marketplace.
+To set up Copilot as a commit message-generating tool in your workspace, first, install GitHub Copilot and Github Copilot chat extensions from the VScode extension marketplace.
 
 ![copilot-ext](https://hackmd.io/_uploads/SkxEixIH1x.png)
 
-After both extensions install  successfully, press **Control + Command + i** (Mac) / **Ctrl + Alt + i** (Windows/Linux) to open the copilot chat window and sign-in to copilot.
+After both extensions install  successfully, press **Control + Command + i** (Mac) / **Ctrl + Alt + i** (Windows/Linux) to open the copilot chat window and click **Sign in to GitHub[dot]com** to sign in to copilot.
 
 ![copilot-chat](https://hackmd.io/_uploads/BJcIdRHr1l.png)
 
@@ -53,8 +53,6 @@ Once signed in to copilot, open the VS code source control menu or press **Ctrl+
 Stage file changes in your local git branch and then click the *sparkle icon* in  to generate a commit message.
 
 ![generate-commit-button](https://hackmd.io/_uploads/B1x-1GVrkx.png)
-
-Straighforward, isn't it?
 
 You can then review the generated message, make neccesary modifications, commit changes, and push commits to your cloud git host (eg. github).
 
@@ -82,7 +80,7 @@ If you prefer using the terminal instead of the source control user interface, d
     $ gh auth login
     ```
 
-3. Go through the instructions and select the appropriate options. More crucially, copy the one-time code and enter it your browser.
+3. Go through the instructions and select the appropriate options. Crucially, copy the one-time code and enter it in your browser.
 
     ```txt
     ? Where do you use GitHub? GitHub.com
@@ -99,7 +97,7 @@ If you prefer using the terminal instead of the source control user interface, d
     ✓ Logged in as <your_username>
     ```
 
-4. Proceed to install (or update) Github Copilot CLI extension after authentication completion.
+4. After authentication completion, proceed to install (or update) the Github Copilot CLI extension.
 
     ```sh
     $ gh extension install github/gh-copilot
@@ -122,13 +120,13 @@ Microsoft imposes that **Copilot allows only 50 messages and 2000 auto code comp
 
 ### Recommendations
 
-Microsoft copilot is an excellent AI-assistant choice. We recommend that you/your organisation first try Copilot before other alternatives which we'll cover in a brief moment.
+Microsoft Copilot is an excellent AI assistant choice. We recommend that you/your organization try Copilot before other alternatives, which we'll cover shortly.
 
-However, if your revenue outlook is solid then we strongly recommend you upgrade to Copilot pro for $10 per month or $100 annually.
+However, if your revenue outlook is solid, we strongly recommend you upgrade to the Copilot Pro tier for $10 per month or $100 annually.
 
 ## GIT AI Commit by *The-Cafe*
 
-[`git-ai-commit`](https://github.com/the-cafe/git-ai-commit) is a third-party AI commit message generating tool built with python by [the-cafe](https://github.com/the-cafe). Compared to Copilot which provides default LLM access to Claude 3.5 Sonnet and OpenAI’s GPT-4o models, it supports a variety of LLM models provided by OpenAI, Anthropic, and locally hosted Ollama. (Full list [here](https://github.com/the-cafe/git-ai-commit/blob/a1e62be64c1f877bfa26c45d2d61508f94504ec0/ai_commit_msg/utils/models.py#L1)).
+[`git-ai-commit`](https://github.com/the-cafe/git-ai-commit) is a third-party AI commit message generating tool built with python by [the-cafe](https://github.com/the-cafe). Compared to Copilot which provides default LLM access to Claude 3.5 Sonnet and OpenAI’s GPT-4o models, it supports a variety of models provisioned by OpenAI, Anthropic, and locally hosted Ollama. (Full list [here](https://github.com/the-cafe/git-ai-commit/blob/a1e62be64c1f877bfa26c45d2d61508f94504ec0/ai_commit_msg/utils/models.py#L1)).
 
 ### Setting up git-ai-commit
 
@@ -156,7 +154,7 @@ Once that's done, follow the instructions below.
 
     You'll have to add the package folder to your system environment variable path manually if this returns an error, otherwise proceed on **Step 7**.
 
-4. Locate the python packages installation directory in your system with the following command.
+4. Locate the Python packages installation directory in your system using the following command.
 
     ```sh
     $ python -m site --user-site  
@@ -174,7 +172,7 @@ Once that's done, follow the instructions below.
    C:\Users\<YOUR_USERNAME>\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\Scripts
     ```
 
-6. Add the modified path to system Environment Variables.
+6. Add the modified path to System Environment Variables.
 
    - Open the **Start Menu** and search for **Environment Variables**.
 
@@ -226,7 +224,7 @@ Once that's done, follow the instructions below.
     UnicodeEncodeError: 'charmap' codec can't encode characters in position 273-274: character maps to <undefined>
     ```
 
-    The above *UnicodeEncode* error indicates that python is trying to encode characters to a text file using an unsupportive character-encoding format.
+    The above *UnicodeEncode* error indicates that python is trying to encode characters to a text file using an unsupported character-encoding format.
 
 8. To address this error, open `hook_hanler.py` from the file paths listed in the error message "*C:\Users\USER_NAME\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\ai_commit_msg\cli\hook_handler.py*"
 
@@ -275,9 +273,9 @@ Once that's done, follow the instructions below.
 
     OpenAI and Anthropic each require an API key for LLM access - we'll use OpenAI.
 
-    To obtain an OpenAI API key, [login to OpenAI](https://platform.openai.com/api-keys) and create one.
+    To obtain an OpenAI API key, [log in to OpenAI](https://platform.openai.com/api-keys) and create one.
 
-    Choose **OpenAI** and **gpt-40-mini** as your AI provider and model respectively then enter the obtained API key. (other models require a paid subscription).
+    Choose **OpenAI** and **gpt-40-mini** as your AI provider and model respectively, then enter the obtained API key. (other models require a paid subscription).
 
     ```txt
     Welcome to AI Commit MSG! Let's get you set up.
@@ -361,7 +359,7 @@ All `git-ai-commit` configuration options and their implementation are outlined 
 
 ### Recommendations
 
-Aside the seemingly unstable nature of the package which results in an avoidably lengthy setup process, it is a more versatile ai commit message tool considering the variety of model options it supports.
+Aside the seemingly unstable nature of the package, which results in an avoidably lengthy setup process, it is a more versatile AI commit message tool considering the variety of model options it supports.
 
 ## Auto Git Commit (autogitc)
 
@@ -425,8 +423,7 @@ To use `autogitc` in your project, follow these steps.
 
    ![image](https://hackmd.io/_uploads/rkSVgtZ81e.png)
 
-
-7. Stage file changes then run `autogitc` to automatically generate commit message and commit changes.
+7. Stage file changes, then run `autogitc` to automatically generate commit message and commit changes.
 
     ```sh
     $ git add .
@@ -434,7 +431,7 @@ To use `autogitc` in your project, follow these steps.
     $ autogitc
     ```
 
-    For the purpose of reviewability, we recommend that you use the `--nc` (or `--nocommit`) flag instead to generate commit messages.
+    For reviewability purposes, we recommend that you use the `--nc` (or `--nocommit`) flag instead to generate commit messages.
 
     ```sh
     $ autogitc --nc
@@ -448,12 +445,13 @@ To use `autogitc` in your project, follow these steps.
     Add AI-Generated GIT Commit guidelines and API key image
     ```
 
+    > **N/B**: You can also add the --text=XXX flag to indicate specific text(s) that must be included in the commit message.
+    Replace XXX with the text you wish to include.
+
     Review commit message suggestion and make changes (where necessary) to be more precise.
 
-    Additionally, in the commit message generation command you can add the `--text=XXX` flag to indicate specific text(s) that must be included in the commit message. Replace *XXX* with text you wish to include.
-
 ### Limitations
-As mentioned earlier, with `autogitc` you're restricted to just one LLM model which is Gpt-4o-mini, unlike Copilot and `git-ai-commit` that offer multiple LLM provider options.
+As mentioned earlier, with `autogitc` you're restricted to just one LLM model, which is Gpt-4o-mini, unlike Copilot and `git-ai-commit` that offer multiple LLM provider options.
 
 ### Recommendation
 
@@ -461,10 +459,10 @@ As mentioned earlier, with `autogitc` you're restricted to just one LLM model wh
 
 ## Conclusion
 
-In this article, you've learnt how AI can be used to ease and refine version control strategy.
+In ~10 minutes, you’ve learned to use AI tools to ease and refine the project version documentation process.
 
-We've covered three different tools that analyze code changes to produce contextual commit messages and provided practical steps on how you can implement them in your project.
+We've covered three different options that analyze code changes to produce contextual commit messages and provided practical steps on how you can adopt them.
 
-While these tools do not completely alleviate your responsibility of ensuring that commit messages are clear, informative, and relevant to code changes, they help maintain conventional commit standards and offer solid starting points.
+While these tools do not completely alleviate your responsibility of ensuring that commit messages are clear, informative, and relevant, they help maintain conventional commit standards and offer solid starting points.
 
 Go make your project's story better, one commit message at a time.
