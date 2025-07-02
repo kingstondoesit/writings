@@ -11,9 +11,9 @@
   - [Ollama for Git Commit Message Generation with Bash script](#ollama-for-git-commit-message-generation-with-bash-script)
   - [Ollama Git Commit with Helper packages](#ollama-git-commit-with-helper-packages)
   
-In [Article 1](../Article1/index.md), we introduced three AI tools that support large language models for git commit message suggestions, such as OpenAI's GPT and Anthropic's Claude - this required some form of server authentication.
+In [Article 1](../Article1/index.md), we introduced three AI tools that support large language models for git commit message suggestions, such as OpenAI's GPT and Anthropic's Claude. However, this required some form of server authentication.
 
-For example, Microsoft Copilot requires you to authenticate with your GitHub credentials. With other third-party packages, you're mandated to obtain an API key from LLM providers, while being subject to API requests and token usage limits.
+For example, Microsoft Copilot requires that you authenticate using your GitHub credentials. Various other third-party packages mandates you to obtain an API key from supported LLM providers and despite that, you are subjected to API requests and token usage limits.
 
 Now you'll learn how to set up and use large language models locally for Git commit message generation without restrictions.
 
@@ -37,7 +37,7 @@ To get started with Ollama, you will need to install it on your machine.
 
 That's it. You should now have ollama installed on your device.
 
-For the next steps, make sure Ollama is running in background processes. You can confirm this by looking up the following address in your browser:
+For the rest of the tutorial, make sure to keep Ollama running in background processes. You can confirm this by looking up the following address in your browser:
 
 ```sh
 http://127.0.0.1:11434
@@ -45,16 +45,10 @@ http://127.0.0.1:11434
 
 ![ollama is running](https://hackmd.io/_uploads/SJHpZdTLyg.png)
 
-or this command.
+or this command in your terminal.
 
 ```sh
 $ curl http://127.0.0.1:11434  
-```
-
-You can also use the **Invoke-RestMethod** on Powershell (windows)
-
-```sh
-$ Invoke-RestMethod http://127.0.0.1:11434  
 ```
 
 ## Installing Large Language Models
@@ -74,7 +68,7 @@ $ ollama pull mistral
 $ ollama run mistral
 ```
 
-The above works the same for all models listed in the Ollama model library, just replace `mistral` with the model name you want to run.
+The above works the same for all models listed in the Ollama model library. Replace `mistral` with the model name you want to run.
 
 ![powershell_SqEc8Meieu](https://hackmd.io/_uploads/HkYxgRJPJe.png)
 
@@ -82,11 +76,9 @@ The above works the same for all models listed in the Ollama model library, just
 
 Once this process is done, you will see **success** returned in the terminal.
 
-Enter `/?` in the command line to show all available Ollama commands and then you can begin interacting with Mistral. Try doing this with and without an internet connection.
+Enter `/?` in the command line to show all available Ollama commands, then you can begin interacting with Mistral. Try doing this with and without an internet connection.
 
 ![powershell_2U3LWXReoK](https://hackmd.io/_uploads/S15CyA1Dye.png)
-
-Noticed anything peculiar?
 
 Ollama is preconfigured to utilize CPUs for prompt processing by default. This means depending on your PC's CPU capacity, model responses can be painfully slow due to the system architecture they were built on and for. It is recommended that, if available, you leverage GPUs to [elevate Ollama performance](https://attach.link.here)***
 
@@ -175,24 +167,22 @@ Proceed with the following steps:
 
     That's it.
 
-In five simple steps, you've created and executed a reusable script that generates git commit messages locally with no authentication requirement. The great thing is, the prompt used in the script can be better fine-tuned to suit a specific style or annotation - tweak it as you wish.
+In five simple steps, you've created and executed a reusable script that generates git commit messages locally with no authentication requirement. The prompt used in the script can be better fine-tuned to suit a specific style or annotation.
 
 ## Ollama Git Commit with Helper packages
 
-Some AI commit message packages have in-built support for Ollama. So if you don't want to write a special script or use one previously created for this purpose, solid alternatives do exist.
+Some AI commit message packages have in-built support for Ollama. So if you don't want to write a special script or use one previously created, there are a few notable alternatives.
 
 **1. Git AI Commit by the-cafe**
 
-Refer to [this section](.././Article1/index.md#git-ai-commit-by-the-cafe) of the previous article.
+We've shown you how to set up and use the [`git-ai-commit`](.././Article1/index.md#git-ai-commit-by-the-cafe) python package in article 1. We used the OpenAI API option in our example. However, if you have an Anthropic API key you can follow the same steps to use that LLM option.
 
-We've shown you how to set up and use the `git-ai-commit` python package and used the OpenAI API option to demonstrate our example. Anthropic follows basically the same procedure.
-
-To use ollama, follow these instructions.
+Ollama works a little differently as we'll see below.
 
 1. Modify the tool configuration setup
 
     ```sh
-    $ git-ai-commits config --setup
+    $ git-ai-commit config --setup
     ```
 
    You'll be asked to overwrite existing commit message hook configurations. Accept this override by pressing key **y**.
@@ -215,7 +205,11 @@ To use ollama, follow these instructions.
 
     [?] Enter your Ollama URL: http://localhost:11434/api/chat
 
+    Ollama configured successfully!
+    [?] Would you like to enable logging? (y/N):
     ```
+
+    ![onboarding](../assets/onboarding-complete.png)
 
 3. Stage file changes and generate commit messages with `git-ai-commit summarize`.
 
@@ -228,7 +222,7 @@ To use ollama, follow these instructions.
     Using Ollama model: mistral
     Here is a summary of your changes:
 
-       Added git-ai-commit-ollama and ollama-landing images
+       Updated watch command port, added onboarding-complete.png
 
-    to use this summary run: `git commit -m " Added git-ai-commit-ollama, ollama-landing images"`
+    to use this summary run: `git commit -m "Updated watch command port, added onboarding-complete.png"`
     ```
