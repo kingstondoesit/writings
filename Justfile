@@ -1,5 +1,3 @@
-
-
 [doc("List available commands")]
 default:
     just --list 
@@ -20,7 +18,7 @@ install-dependencies:
 
 [doc("Build the book and open it in the browser")]
 watch:
-    mdbook serve --open 
+    mdbook serve --open --port 3001 
 
 [doc("Checkout a pull request to a new branch")]
 checkout-pr PR_NUMBER BRANCH_NAME: 
