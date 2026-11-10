@@ -177,7 +177,7 @@ In five simple steps, you've created and executed a reusable script that generat
 
 You do not always need to write specialized scripts to generate Git commit messages unless your use case requires advanced customization. Some packages include built-in support for Ollama, with preconfigured prompts for generating commit messages. One such package is **Git AI Commit by the-cafe**. Below is how you use Ollama with it.
 
-## Locally Generate Commit Messages with Git AI Commit by the-cafe**
+## Locally Generate Commit Messages with Git AI Commit by the-cafe
 
 We've shown you how to set up the [`git-ai-commit`](.././Article1/index.md#git-ai-commit-by-the-cafe) Python package in [this section](../Article1/index.md#setting-up-git-ai-commit) of the preceding article and demonstrated an example with the OpenAI API option.
 
