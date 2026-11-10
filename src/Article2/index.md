@@ -11,23 +11,23 @@
   - [Ollama for Git Commit Message Generation with Bash script](#ollama-for-git-commit-message-generation-with-bash-script)
   - [Ollama Git Commit with Helper packages](#ollama-git-commit-with-helper-packages)
   
-In [Article 1](../Article1/index.md), we introduced three AI tools that support large language models for git commit message suggestions, such as OpenAI's GPT and Anthropic's Claude. However, this required some form of server authentication.
+In [Article 1](../Article1/index.md), we introduced three AI tools you can use to generate Git commit messages with large language models such as OpenAI's GPT and Anthropic's Claude - each required server access and authentication.
 
-For example, Microsoft Copilot requires that you authenticate using your GitHub credentials. Various other third-party packages mandates you to obtain an API key from supported LLM providers and despite that, you are subjected to API requests and token usage limits.
+For example, Microsoft Copilot needed you to authenticate sessions with your GitHub credentials. Alternative third-party packages required that you obtain an API key from supported LLM providers and were limited by API request and token usage restrictions.
 
-Now you'll learn how to set up and use large language models locally for Git commit message generation without restrictions.
+Now you'll learn how to set up and use large language models locally for generating Git commit messages without restrictions.
 
-We'll install Ollama and configure models to work with Git using a custom script. We'll also use helper packages with Ollama access in a typical development environment. Both methods can be used to generate commit messages in your project, even without an internet connection.
+We'll install Ollama and configure models to work with Git using a custom script. We'll also use helper packages with Ollama access in a typical development environment. Both methods can be used to generate commit messages in your project without an internet connection.
 
-> **Important**: It is crucial to note that containerized LLMs can be quite sizeable and resource-intensive, but having them run locally instead of querying their cloud-hosted versions offers room for enhanced accessibility, flexibility, and control.
+> **Important**: It is crucial to note that containerized LLMs can be quite sizeable and resource-intensive. However, having them run locally instead of querying their cloud-hosted versions offers room for enhanced accessibility, flexibility, and control.
 
 ## Prerequisites
 
 ## Setting up Ollama
 
-Ollama is a popular open-source tool that lets you host and run large language models on your local machine.
+Ollama is a popular open-source tool that lets you host and run large language models locally.
 
-To get started with Ollama, you will need to install it on your machine.
+To begin, install Ollama on your device.
 
 - Visit the official [Ollama download webpage](https://ollama.com/download) and download the application for your operating system.
 
@@ -35,9 +35,9 @@ To get started with Ollama, you will need to install it on your machine.
 
 - Run **OllamaSetup.exe** (Windows)
 
-That's it. You should now have ollama installed on your device.
+After installation, run Ollama by clicking the Ollama icon on the Windows Start menu.
 
-For the rest of the tutorial, make sure to keep Ollama running in background processes. You can confirm this by looking up the following address in your browser:
+Make sure Ollama is running in the background. You can confirm this by looking up the following address in your browser:
 
 ```sh
 http://127.0.0.1:11434
@@ -51,13 +51,19 @@ or this command in your terminal.
 $ curl http://127.0.0.1:11434  
 ```
 
+You can also use the _Invoke-RestMethod_ in PowerShell to confirm that Ollama is running.
+
+```sh
+$ Invoke-RestMethod http://127.0.0.1:11434
+```
+
 ## Installing Large Language Models
 
-Now that you have Ollama downloaded and running on your machine, the next step is to install Ollama-compatible models.
+Now that you have Ollama downloaded and running, the next step is to install Ollama-compatible models.
 
 You can install language models on Ollama using the Ollama CLI, which directly downloads models from the [Ollama library](https://ollama.com/library).
 
-Since our objective here is primarily to summarize and generate text based on code version differences, we'll use [**Mistral**](https://ollama.com/library/mistral), a relatively light weight language model popular its for text generating capabilities.
+Since our objective here is primarily to summarize and generate text based on code version differences, we'll use [**Mistral**](https://ollama.com/library/mistral), a relatively light weight language model popular its for text-generating capabilities.
 
 ### Pull and Run LLMs with Ollama CLI (Mistral)
 
@@ -68,31 +74,31 @@ $ ollama pull mistral
 $ ollama run mistral
 ```
 
-The above works the same for all models listed in the Ollama model library. Replace `mistral` with the model name you want to run.
+The same commands apply to all models listed in the Ollama model library. Replace `mistral` with the model name you wish to install and run.
 
 ![powershell_SqEc8Meieu](https://hackmd.io/_uploads/HkYxgRJPJe.png)
 
-> **Note:** Downloading mistral might take some time so be patient while it pulls and writes the model's manifest to your pc.
+Once the install process completes, you'll see success returned in the terminal.
 
-Once this process is done, you will see **success** returned in the terminal.
+Enter `/?` in the command line to show all available Ollama commands
 
-Enter `/?` in the command line to show all available Ollama commands, then you can begin interacting with Mistral. Try doing this with and without an internet connection.
+You can then begin interacting with Mistral. Try doing this with and without an internet connection.
 
 ![powershell_2U3LWXReoK](https://hackmd.io/_uploads/S15CyA1Dye.png)
 
-Ollama is preconfigured to utilize CPUs for prompt processing by default. This means depending on your PC's CPU capacity, model responses can be painfully slow due to the system architecture they were built on and for. It is recommended that, if available, you leverage GPUs to [elevate Ollama performance](https://attach.link.here)***
+Ollama is preconfigured to utilize CPUs for prompt processing and response by default. This means model response rates can vary. Responses can be slow if your PC's CPU does not meet the minimum required threshold. It is recommended that, if available, you leverage GPUs to [elevate Ollama performance](https://docs.ollama.com/gpu).
 
 ## Ollama for Git Commit Message Generation with Bash script
 
-Before diving into configuring Ollama to work with git, it is important that you have either **git bash** or **WSL** terminals integrated in your IDE.
+Before configuring Ollama to work with Git, ensure that you have either **git bash** or **WSL** terminal integrated in your IDE.
 
 ![image](https://hackmd.io/_uploads/HJJ3JLgwJe.png)
 
 Proceed with the following steps:
 
-1. At the root of your project, create a new bash script `mistral-ai-commit.sh`.
+1. At the root of your project, create a new Bash script `mistral-ai-commit.sh`.
 
-    The code below handles the task of generating concise commit messages based on staged changes in your git repository. This is the content of your bash script.
+    The code below generates concise commit messages using staged changes in your git repository. This is the content of your bash script.
 
     ```bash
     #!/bin/bash  
@@ -165,19 +171,19 @@ Proceed with the following steps:
 
 5. Review the suggested Commit message, make changes if needed, and commit changes.
 
-    That's it.
-
-In five simple steps, you've created and executed a reusable script that generates git commit messages locally with no authentication requirement. The prompt used in the script can be better fine-tuned to suit a specific style or annotation.
+In five simple steps, you've created and executed a reusable script that generates git commit messages locally with no authentication requirement. The great thing about this method is flexibility; you can always fine-tune the prompt to suit your unique style or your organization's.
 
 ## Ollama Git Commit with Helper packages
 
-Some AI commit message packages have in-built support for Ollama. So if you don't want to write a special script or use one previously created, there are a few notable alternatives.
+You do not always need to write specialized scripts to generate Git commit messages unless your use case requires advanced customization. Some packages include built-in support for Ollama, with preconfigured prompts for generating commit messages. One such package is **Git AI Commit by the-cafe**. Below is how you use Ollama with it.
 
-**1. Git AI Commit by the-cafe**
+## Locally Generate Commit Messages with Git AI Commit by the-cafe**
 
-We've shown you how to set up and use the [`git-ai-commit`](.././Article1/index.md#git-ai-commit-by-the-cafe) python package in article 1. We used the OpenAI API option in our example. However, if you have an Anthropic API key you can follow the same steps to use that LLM option.
+We've shown you how to set up the [`git-ai-commit`](.././Article1/index.md#git-ai-commit-by-the-cafe) Python package in [this section](../Article1/index.md#setting-up-git-ai-commit) of the preceding article and demonstrated an example with the OpenAI API option.
 
-Ollama works a little differently as we'll see below.
+We used the OpenAI API option in our example, and if you have an Anthropic API key, you can follow the same steps to use that LLM option.
+
+Ollama works a little differently, as we'll see below.
 
 1. Modify the tool configuration setup
 
@@ -185,11 +191,11 @@ Ollama works a little differently as we'll see below.
     $ git-ai-commit config --setup
     ```
 
-   You'll be asked to overwrite existing commit message hook configurations. Accept this override by pressing key **y**.
+   You'll be asked to overwrite existing commit message hook configurations. Accept this override by pressing the letter **y**.
 
     ![git-ai-commit-ollama](https://hackmd.io/_uploads/S1Ej00tLyx.png)
 
-2. Select Ollama as your preferred AI provider and mistral as model choice.
+2. Select Ollama as your preferred AI provider and mistral as your model choice.
 
     ```txt
     Choose your preferred AI provider:
@@ -226,3 +232,7 @@ Ollama works a little differently as we'll see below.
 
     to use this summary run: `git commit -m "Updated watch command port, added onboarding-complete.png"`
     ```
+
+That's it.
+
+I hope that helps!
