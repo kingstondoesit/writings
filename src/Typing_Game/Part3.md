@@ -591,7 +591,7 @@ A simple challenge to stimulate your analytical and problem-solving capacity usi
 
 You can learn about creating modals from this tutorial by Traversy Media.
 
-{%youtube 6ophW7Ask_0 %}
+{{#embed https://www.youtube.com/watch?v=6ophW7Ask_0 }}
 
 Your solution should be similar to what we have [ here](https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F6qd8flnl24rjda70xuuh.gif); however, you can customize the colors and themes to suit your preference.
 

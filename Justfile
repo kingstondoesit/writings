@@ -5,8 +5,8 @@ default:
 
 [doc("Install dependencies")]
 install-dependencies:
-    cargo install --version 0.4.44 mdbook
-    cargo install mdbook-embedify
+    cargo install --version 0.4.51 mdbook
+    cargo install --version 0.2.0 mdbook-embed
     cargo install mdbook-alerts
     cargo install mdbook-repl
     cargo install mdbook-quiz
