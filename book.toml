@@ -19,8 +19,6 @@ javascript.loading = "lazy"
 python.enable = true
 python.loading = "lazy"
 
-[preprocessor.embed]
-
 [preprocessor.quiz]
 
 [preprocessor.tabs]
