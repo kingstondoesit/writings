@@ -6,13 +6,12 @@ default:
 [doc("Install dependencies")]
 install-dependencies:
     cargo install --version 0.4.51 mdbook
-    cargo install mdbook-alerts
-    cargo install mdbook-repl
-    cargo install mdbook-quiz
-    cargo install mdbook-mermaid
-    cargo install mdbook-last-changed
-    cargo install mdbook-codeblocks
-    cargo install mdbook-tabs
+    cargo install --version 0.8.0 mdbook-alerts
+    cargo install --version 0.2.9 mdbook-repl
+    cargo install --version 0.4.0 mdbook-quiz
+    cargo install --version 0.15.0 mdbook-mermaid
+    cargo install --version 0.2.2 mdbook-last-changed
+    cargo install --version 0.2.3 mdbook-tabs
 
 
 [doc("Build the book and open it in the browser")]
